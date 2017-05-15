@@ -22,3 +22,36 @@ with log stellar mass between 8.5 and 11 along with log stellar mass, weights, a
 
 For use with R notebook `s4gbars_R_logistic-regression.ipynb` for weighted logistic regression
 analysis.
+
+
+## 10%/90% LOESS boundaries for bar sizes (GZ2 and S4G); GZ2 bar sizes
+
+These are two-column files with log of stellar mass in the first column and 10% or
+90% LOESS-smoothed estimates for bar size (log of observed semi-major axis in kpc).
+
+   * `hoyle+11_gz2_barsizes_10percentile.txt`
+
+   * `hoyle+11_gz2_barsizes_90percentile.txt`
+   
+   * `s4g_barsizes_10percentile.txt`
+   
+   * `s4g_barsizes_90percentile.txt`
+
+For use with Python notebook `s4gbars_barsizes.ipynb` for making Figure 8 of the paper.
+The latter figure also uses observed bar sizes in Galaxy Zoo 2 galaxies from Hoyle et al.
+(2011):
+
+   * `GalaxyZoo2_barlengths_alldata.txt`
+
+
+## Summaries of bar-observation simulations:
+
+   * `sim_logMstar_d30_sp_2xfwhm_HST_z0.75_200_dp-sizes.txt`
+   
+   * `sim_logfgas_d30_2xfwhm_SDSS_200_dp-sizes.txt`
+   
+   * `sim_logMstar_d30_sp_2xfwhm_HST_z0.75_200_dp-sizes_scale0.5.txt`
+   
+   * `sim_logfgas_d30m95_sp_2xfwhm_SDSS_200_HI-limited.txt`
+   
+   * `sim_logMstar_d30_sp_2xfwhm_SDSS_200_dp-sizes.txt`
