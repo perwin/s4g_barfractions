@@ -14,6 +14,14 @@ ONESIGMA_UPPER = 0.8415
 
 
 
+def Read2ColumnProfile( fname ):
+    dlines = [line for line in open(fname) if len(line) > 1 and line[0] != "#"]
+    x = [float(line.split()[0]) for line in dlines]
+    y = [float(line.split()[1]) for line in dlines]
+    return np.array(x), np.array(y)
+
+
+
 def dtomm( distanceMpc ):
 	"""converts distance in Mpc to distance modulus (M - m, in magnitudes)
 	"""
