@@ -4,18 +4,19 @@
 # Except for the following columns, values are from Herrera-Endoqui et al. (2015: A&A, 582, A86)
 #    dist, logmstar -- distance in Mpc and log of galaxy stellar mass (in solar masses), from 
 #       Munoz-Mateos et al. (2015: ApJS, 219, 3)
-#    B_tc, BmV_tc, m21c -- from HyperLeda (as of 29 March 2017)
+#    bar_strength -- Buta et al. (2015)
+#    A2, A4 -- Diaz-Garcia et al. (2016)
+#    Re, Re_kpc, h_kpc -- Salo et al. (2015)
+#    R25, etc.; t_s4g -- main S4G table
+#    B_tc, BmV_tc, m21c, W_gas, t_leda -- HyperLeda (as of 29 March 2017)
 #    gmr_tc -- total g-r color, based on BmV_tc as described in paper
 #    weight_BmVtc -- B_t-based weights for galaxy colors (see paper)
 #    w25, w30, w40 -- V/V_max weights assuming D_max = 25, 30, or 40 Mpc
 #    M_HI, logfgas -- based on dist + m21c, as described in paper
-#    sma_dp_kpc2 -- deprojected bar semi-major axis (in kpc) using sma_kpc
-#       and galaxy inclination and PA
-
-# w25 w30 w40 sma sma_kpc sma_ell_kpc sma_dp_kpc sma_dp_kpc2
-# sma_ell_dp_kpc2 bar_strength A2 A4 inclination R25 R25_5 R25_kpc
-# R25_5_kpc R25c_kpc Re Re_kpc h_kpc W_gas t_s4g t_leda
-
+#    inclination -- Munoz-Mateos et al. (2015)
+#    sma_dp_kpc2 -- deprojected bar semi-major axis (in kpc) using bar size and
+#       PA from Herrera-Endoqui et al. and galaxy inclination and PA from Munoz-Mateos et al.
+#
 # name logmstar dist B_tc BmV_tc weight_BmVtc gmr_tc m21c M_HI logfgas w25 w30 w40 sma sma_kpc sma_ell_kpc sma_dp_kpc sma_dp_kpc2 sma_ell_dp_kpc2 bar_strength A2 A4 inclination R25 R25_5 R25_kpc R25_5_kpc R25c_kpc Re Re_kpc h_kpc W_gas t_s4g t_leda
 ESO013-016 9.56400049274 23.017 12.883 -99.0 1.91078322347 -111.06 14.87 1283136093.71 -0.455727771196 1.0 1.0 1.0 16.1 1.79659030858 1.15495091266 1.79659030858 1.79662604637 1.15497388695 1 0.391 0.125 50.3033002308 64.2867180336 36.55 7.17372016086 4.07859476887 7.5291236801 38.85 4.33525052723 2.34996244152 74.87 7.5 7.5 
 ESO026-001 9.37300032507 19.16 13.446 -99.0 2.86040117211 -111.06 15.039 760967827.002 -0.491634029469 1.0 1.1070755259 2.62417902435 18.5 1.71846895983 2.00642862337 1.76491406686 1.76618085929 2.06213548977 2 0.643 0.282 20.3778518271 45.4068374531 28.6 4.21785085013 2.65666012169 5.24917701325 62.93 5.84558116985 1.8029061644 41.68 5.9 5.9 
