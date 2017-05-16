@@ -3,7 +3,9 @@
 This git repository contains data files, Python code, and Python and R Jupyter
 notebooks which can be used to reproduce figures and analyses from the paper "The Dependence of Bar Frequency 
 on Galaxy Mass, Colour, and Gas Content -- and Angular Resolution -- in the Local Universe"
-(Erwin 2017, in prep); a draft version of the paper can be found 
+(Erwin 2017, in prep).
+
+A draft version of the paper can be found
 [here](https://www.mpe.mpg.de/~erwin/temp/s4g_bars.pdf).
 
 The `data/` subdirectory contains text-file tables with various data compilations
@@ -11,7 +13,7 @@ and simulation outputs; see the README.md file there for details.
 
 ## Dependencies
 
-The code and notebooks require the following Python modules and packages:
+The Python code and notebooks require the following Python modules and packages:
 
    * [Numpy](https://www.numpy.org), [Scipy](https://www.scipy.org), [matplotlib](https://matplotlib.org)
    * [Astropy](https://www.astropy.org)
@@ -26,7 +28,7 @@ There are three Python notebooks:
 
    * `s4gbars_main.ipynb` -- generates the largest set of figures in the paper; also generates
    data files for use in R logistic regression
-      - Figures 1, 2, 4, 5, A1, A2, B1, B2
+      - Figures 1, 2, 4, 5, A1, A2, B1, B2 [currently incomplete for some of the latter figures]
 
    * `s4gbars_barsizes.ipynb` -- generates figures which use S4G (and sometimes Galaxy
    Zoo 2) bar *sizes*
@@ -51,11 +53,6 @@ There are also two R notebooks:
    * `datautils.py`, `plotutils.py`, `s4gutils.py` -- miscellaneous utility functions
    (including statistics).
    
-   * `generate_GZ2-bar-sizes_table.py` -- code for regenerating the GZ2 bar-sizes table
-   in the data/ subdirectory (note that running this will required downloading the
-   GZ2 SDSS metadata table from the GZ data site; see notes in the data/external/
-   subdirectory).
-   
    * `simulate_surveys.py` -- code for generating bootstrapped mock surveys measuring bar frequencies,
    using the S4G galaxies as a parent sample and adopting user-specified redshift ranges.
    
@@ -67,4 +64,9 @@ There are also two R notebooks:
       
       The outputs of this script (using the default random seed value of 100) can be found
       in the data/ subdirectory.
-      
+       
+   * `generate_GZ2-bar-sizes_table.py` -- code for regenerating the GZ2 bar-sizes table
+   in the data/ subdirectory (note that running this will required downloading the
+   GZ2 SDSS metadata table from the GZ data site; see notes in the data/external/
+   subdirectory).
+  
