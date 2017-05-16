@@ -1,0 +1,7 @@
+# Data from Fig.3 of Sheth+2008 ("total bar fraction", highest-z subsample)
+# logMstar  N_bar	N_tot
+10.35		31		204
+10.5		58		327
+10.65		58		255
+10.8		60		197
+11.1		48		100
