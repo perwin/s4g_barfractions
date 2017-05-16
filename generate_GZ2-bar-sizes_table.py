@@ -16,7 +16,7 @@ import s4gutils
 baseDir = "./data/external/"
 
 # Read in data from Hoyle+2011 table
-ff = baseDir + "GalaxyZoo2BarLengths_1.txt"
+ff = baseDir + "hoyle_barlengths.csv"
 hoyle11data = ascii.read(ff)
 hoyle11names = hoyle11data['SDSS objid']
 nHoyle11 = len(hoyle11names)

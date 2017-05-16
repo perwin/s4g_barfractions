@@ -1,7 +1,7 @@
 These are data files from external sources, mainly used as input to create
 derived data files in the parent directory.
 
-   * `GalaxyZoo2BarLengths_1.txt` -- Bar lengths for Galaxy Zoo 2 bar measurements,
+   * `hoyle_barlengths.csv` -- Bar lengths for Galaxy Zoo 2 bar measurements,
    from Hoyle et al (2011). This has been converted from the original csv format
    to space-delimited format. Original source: https://data.galaxyzoo.org
 
