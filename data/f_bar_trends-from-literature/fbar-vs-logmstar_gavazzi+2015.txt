@@ -1,0 +1,7 @@
+# Data from Fig.4 (inset panel) of Gavazzi+2015
+# logMstar  f_bar
+8.752	0.04131
+9.240	0.1784
+9.742	0.2273
+10.24	0.2772
+10.73	0.4225
