@@ -5,6 +5,8 @@ notebooks which can be used to reproduce figures and analyses from the paper "Th
 on Galaxy Mass, Colour, and Gas Content -- and Angular Resolution -- in the Local Universe"
 (Erwin 2017, in prep).
 
+![Figure 10 (left)](./fbar-vs-mass-sim.png)
+
 A draft version of the paper can be found
 [here](https://www.mpe.mpg.de/~erwin/temp/s4g_bars.pdf).
 
@@ -69,4 +71,22 @@ There are also two R notebooks:
    in the data/ subdirectory (note that running this will required downloading the
    GZ2 SDSS metadata table from the GZ data site; see notes in the data/external/
    subdirectory).
-  
+
+
+
+## How to Generate Figures and Analyses from the Paper
+
+1. Download this repository (some individual notebooks can be run with only a subset
+of the data files and code, but it's simpler just to work with the entire set of files).
+
+2. Run the Python notebooks (`s4gbars_main.ipynb`, `s4gbars_barsizes.ipynb`, `s4gbars_simulated_surveys.ipynb`)
+to re-generate the figures, or to experiment with alternative versions.
+
+3. To re-run the SDSS survey simulations, use the `make_simulated_surveys.py` script,
+which will regenerate the output `sim_*` files in data/ subdirectory (using the same
+random seed as was used for the paper). To change the
+random seed for the simulations, edit the `make_simulated_surveys.py` script and
+change the value assigned to the `randomSeed` variable; to use the current time as
+the seed, set `randomSeed = None`.
+
+4. To re-do the logistic regression analyses, run the R notebook `s4gbars_R_logistic_regression.ipynb`.
