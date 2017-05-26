@@ -1,14 +1,12 @@
 # Public data, code, and notebooks for S4G-based bar-frequencies paper using S4G data
 
-This git repository contains data files, Python code, and Python and R Jupyter
-notebooks which can be used to reproduce figures and analyses from the paper "The Dependence of Bar Frequency 
-on Galaxy Mass, Colour, and Gas Content -- and Angular Resolution -- in the Local Universe"
+This git repository contains data files, Python code, and Python and R
+Jupyter notebooks which can be used to reproduce figures and analyses
+from the paper ["The Dependence of Bar Frequency on Galaxy Mass, Colour,
+and Gas Content -- and Angular Resolution -- in the Local Universe"](https://www.mpe.mpg.de/~erwin/temp/s4g_bars.pdf)
 (Erwin 2017, in prep).
 
 ![Figure 10 (left)](./fbar-vs-mass-sim.png)
-
-A draft version of the paper can be found
-[here](https://www.mpe.mpg.de/~erwin/temp/s4g_bars.pdf).
 
 The `data/` subdirectory contains text-file tables with various data compilations
 and simulation outputs; see the README.md file there for details.
