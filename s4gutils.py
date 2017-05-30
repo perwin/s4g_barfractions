@@ -15,6 +15,12 @@ ONESIGMA_UPPER = 0.8415
 
 
 def Read2ColumnProfile( fname ):
+	"""Read in the (first) two columns from a simple text file where the columns
+	are separated by whitespace and lines beginning with '#' are ignored.
+	
+	Returns tuple of (x, y), where x and y are numpy 1D arrays corresponding to
+	the first and second column
+	"""
     dlines = [line for line in open(fname) if len(line) > 1 and line[0] != "#"]
     x = [float(line.split()[0]) for line in dlines]
     y = [float(line.split()[1]) for line in dlines]
@@ -23,7 +29,7 @@ def Read2ColumnProfile( fname ):
 
 
 def dtomm( distanceMpc ):
-	"""converts distance in Mpc to distance modulus (M - m, in magnitudes)
+	"""Converts distance in Mpc to distance modulus (M - m, in magnitudes)
 	"""
 	five_logD = 5.0 * np.log10(distanceMpc)
 	return (25.0 + five_logD)
@@ -36,7 +42,6 @@ def HIMassToFlux( M_HI, dist_Mpc ):
 	based on Roberts (1975, n A. Sandage, M. Sandage, and J. Kristian (eds.), 
 	Galaxies and the Universe. Chicago:	University of Chicago Press; p.	309).
 	"""
-	
 	return M_HI / (2.356e5 * dist_Mpc**2)
 
 
@@ -79,10 +84,6 @@ def Binomial( n, n_tot, nsigma=1.0, conf_level=None, method="wilson" ):
 	Returns tuple of (p, sigma_minus, sigma_plus).
 	"""
 	
-	# the following works only for scalar inputs
-# 	if (n_tot == 0):
-# 		return (0.0, 0.0, 0.0)
-	
 	p = (1.0 * n) / n_tot
 	q = 1.0 - p
 	
@@ -119,18 +120,8 @@ def Binomial( n, n_tot, nsigma=1.0, conf_level=None, method="wilson" ):
 	return (p, sigma_minus, sigma_plus)
 
 
-def ConfidenceInterval( vect ):
-	
-	nVals = len(vect)
-	lower_ind = int(round(ONESIGMA_LOWER*nVals)) - 1
-	upper_ind = int(round(ONESIGMA_UPPER*nVals))
-	vect_sorted = copy.copy(vect)
-	vect_sorted.sort()
-	return (vect_sorted[lower_ind], vect_sorted[upper_ind])
 
-
-
-# Code for estimating stellar masses from absolute magnitudes and color-based
+# Various functions for estimating stellar masses from absolute magnitudes and color-based
 # M/L values
 
 def magratio( mag1, mag2, mag1_err=None, mag2_err=None ):

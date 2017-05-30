@@ -11,13 +11,14 @@ import simulate_surveys
 baseDirSurv = "./data/"
 
 
+# column headers for output files
 colHeaders_logmstar = "# logMstar	medFbar		sigma_low	sigma_high\n"
 colHeaders_logfgas = "# log_fgas	medFbar		sigma_low	sigma_high\n"
 
 
 # random-number-generator seed used for simulations in paper; change for
-# different pseudorandom number sequences (set = None to base seed on
-# current time)
+# different pseudorandom number sequences (set = None to have the seed 
+# be based on the current time)
 randomSeed = 100
 
 
@@ -76,7 +77,7 @@ print("Output saved to %s." % ff)
 
 
 # * Simulation for f_bar as a function of stellar mass in an 
-# HST-style survey, assuming all galaxies at z = 0.75
+# HST-style survey (e.g., Sheth+2008), assuming all galaxies are at z = 0.75
 zrange_075 = [0.75,0.75]
 n = 1000
 mstar_bincenters, fmed, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(200, simulate_surveys.dset_d30_sp, 

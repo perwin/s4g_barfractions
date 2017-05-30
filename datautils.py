@@ -1,4 +1,5 @@
-# Python utility functions for reading in data, etc.
+# Python utility functions for reading in data and storing it in something
+# approximating an R data frame.
 
 import sys, os, copy, subprocess
 import numpy as np

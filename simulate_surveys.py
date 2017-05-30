@@ -4,11 +4,17 @@
 # Python code for simulating barred-galaxy observations in limited-resolution
 # surveys, esp. SDSS-based
 
+# The basic idea: generate a set of N galaxies at various redshifts by bootstrap
+# sampling from a distance-limited subset of the S4G galaxies. Then determine
+# the bar fraction by "observing" each galaxy to see if its (projected) bar size
+# is larger than some user-specified angular size limit (e.g., some multiple of
+# the typical seeing FWHM for the reference survey).
+
 # 	Use existing S4G dataset
 # 		1. Simple version: use *observed* bar sizes and inclinations
-# 		2. More complex version: use deprojected bar sizes, then apply random
-# 		projection (random bar PA from uniform sampling, random inclination from
-# 		correct inclination sampling)
+# 		2. More complex version [what we used for the paper]: use deprojected bar sizes, 
+#		then apply random projection (random bar PA from uniform sampling, random 
+#		inclination from correct inclination sampling)
 #			-- Also requires adjusting vmaxg *if* we're doing H I flux-limit
 #			checks, since different inclination -> different vmaxg
 # 		
@@ -26,7 +32,7 @@
 # 	Compute observed bar size in arcsec, compare with cutoff
 # 		if detected, mark galaxy as "barred" & store observed bar size
 # 		if not detected, mark galaxy as "unbarred"
-# 
+
 
 
 import os, math, random
@@ -37,14 +43,14 @@ from scipy.interpolate import InterpolatedUnivariateSpline
 from astropy.cosmology import FlatLambdaCDM
 cosmo = FlatLambdaCDM(H0=70, Om0=0.29)
 
-#import astro_utils, astrostat
 import s4gutils
 import datautils
 
-s4gdata = datautils.ReadCompositeTable('data/s4gbars_table.dat', columnRow=0, dataFrame=True)
 
-
-baseDir = "/Users/erwin/Documents/Working/Projects/Project_BarSizes/"
+# Read in composite data table for Parent Disk Sample from S4G
+columnHeaderRow = 25
+s4gdata = datautils.ReadCompositeTable('data/s4gbars_table.dat', columnRow=columnHeaderRow, 
+										dataFrame=True)
 
 
 # Generate spline-interpolation objects for cosmology calculations (*much* faster
@@ -67,8 +73,8 @@ random.seed()
 
 
 # construct dataset vectors, using min(logMstar) = 9.0 and max(distance) = 25 Mpc
-nTot_mstar = len(s4gdata.name)
-ii_gmr = [i for i in range(nTot_mstar) if s4gdata.gmr_tc[i] > -1]
+nDisksTot = len(s4gdata.name)
+ii_gmr = [i for i in range(nDisksTot) if s4gdata.gmr_tc[i] > -1]
 nTot_gmr = len(ii_gmr)
 
 index_MHI = 9
@@ -96,9 +102,11 @@ def MakeS4GSubsample( distLimit=30.0, logMstarLimit=9.0, tLimit=-0.4 ):
     Returns
     -------
 	list of galaxy-data tuples, one per galaxy
+		Each tuple has (name, logmstar, sma, sma_kpc, sma_dp_kpc2, gmr_tc, logfgas,
+			vmax_weight, weight_BmVtc, M_HI, W_gas_dp, M_B, inclination)
 	"""
 	dset = []
-	for i in range(nTot_mstar):
+	for i in range(nDisksTot):
 		if ((s4gdata.dist[i] <= distLimit) and (s4gdata.logmstar[i] >= logMstarLimit)
 			and (s4gdata.t_s4g[i] > tLimit)):
 			distMpc = s4gdata.dist[i]
@@ -544,7 +552,7 @@ def GenerateAndObserveNTimes( nSamples, dset, zRange, nGalaxies, barSizeLimit,
 		nSamples = number of separate sampling+observation iterations
 		dset = dataset (e.g., dest_mstar_d25)
 		zRange = [z_low, z_high]
-		nGalaxies = total number of galaxies in simulated sample
+		nGalaxies = total number of galaxies in each simulated sample
 		barSizeLimit = lower limit on detectable bar size, in arcsec
 						(e.g., nFWHM*1.4 for SDSS)
 		start, stop, delta = start, end, and delta for dataset quantity
@@ -666,19 +674,4 @@ def GenerateAndObserveNTimes( nSamples, dset, zRange, nGalaxies, barSizeLimit,
 		midvals[i] = 0.5*(bin_edges[i] + bin_edges[i + 1])
 
 	return midvals, finalMedians, finalMedians_low, finalMedians_high
-
-
-headerText_2fwhm = """# mstar_bincenters, fmed_2fwhm, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(100, simulate_surveys.dset_mstar_d25, [0.01, 0.06], 5000, 2*1.4, 9.0, 11.5, 0.25)
-# sigma_minus_2fwhm = fmed_2fwhm - flow
-# sigma_plus_2fwhm = fhigh - fmed_2fwhm
-# 
-# logMstar	medFbar		sigma_low	sigma_high
-"""
-
-headerText_2fwhm_dp = """# mstar_bincenters, fmed_2fwhm, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(100, simulate_surveys.dset_mstar_d25, [0.01, 0.06], 5000, 2*1.4, 9.0, 11.5, 0.25, useObservedSizes=False)
-# sigma_minus_2fwhm = fmed_2fwhm - flow
-# sigma_plus_2fwhm = fhigh - fmed_2fwhm
-# 
-"""
-
 
