@@ -21,10 +21,10 @@ def Read2ColumnProfile( fname ):
 	Returns tuple of (x, y), where x and y are numpy 1D arrays corresponding to
 	the first and second column
 	"""
-    dlines = [line for line in open(fname) if len(line) > 1 and line[0] != "#"]
-    x = [float(line.split()[0]) for line in dlines]
-    y = [float(line.split()[1]) for line in dlines]
-    return np.array(x), np.array(y)
+	dlines = [line for line in open(fname) if len(line) > 1 and line[0] != "#"]
+	x = [float(line.split()[0]) for line in dlines]
+	y = [float(line.split()[1]) for line in dlines]
+	return np.array(x), np.array(y)
 
 
 
