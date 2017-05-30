@@ -88,3 +88,8 @@ change the value assigned to the `randomSeed` variable; to use the current time 
 the seed, set `randomSeed = None`.
 
 4. To re-do the logistic regression analyses, run the R notebook `s4gbars_R_logistic_regression.ipynb`.
+
+
+## Licensing
+
+Code in this repository is released under the BSD 3-clause license.
