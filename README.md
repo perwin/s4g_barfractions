@@ -11,6 +11,9 @@ and Gas Content -- and Angular Resolution -- in the Local Universe"](https://www
 The `data/` subdirectory contains text-file tables with various data compilations
 and simulation outputs; see the README.md file there for details.
 
+[![DOI](https://zenodo.org/badge/86154475.svg)](https://zenodo.org/badge/latestdoi/86154475)
+
+
 ## Dependencies
 
 The Python code and notebooks require the following Python modules and packages:
