@@ -44,7 +44,7 @@ print("Output saved to %s." % ff)
 
 
 # * Simulations measuring f_bar as a function of gas mass ratio for GZ2-style surveys
-# GZoo -- f_gas, D < 30 Mpc:
+# GZoo -- f_gas, D < 30 Mpc, log(M_star) > 9.5:
 # 2000 galaxies, to match sample size in Masters+2012, Cervantes Sodi 2017
 n = 2000
 zrange_fgas = [0.01,0.05]

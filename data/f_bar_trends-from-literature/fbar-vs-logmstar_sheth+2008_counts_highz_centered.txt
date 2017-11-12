@@ -2,9 +2,11 @@
 # From figure caption: "Each point is at the left edge of bins of 
 # $\delta \log M = 0.15$, starting from 10.0 (point skipped if no data is found in a
 # bin). Errors bars are calculated as before and last bin is from $\log M = 10.9$--11.5."
+#
+# In this file, the logMstar values are centered within the specified bins.
 # logMstar  N_bar	N_tot
-10.35		31		204
-10.5		58		327
-10.65		58		255
-10.8		60		197
-11.1		48		100
+10.425		31		204
+10.575		58		327
+10.725		58		255
+10.875		60		197
+11.2		48		100
