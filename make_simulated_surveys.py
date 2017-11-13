@@ -77,14 +77,14 @@ print("Output saved to %s." % ff)
 
 
 # * Simulation for f_bar as a function of stellar mass in an 
-# HST-style survey (e.g., Sheth+2008), assuming all galaxies are at z = 0.75
-zrange_075 = [0.75,0.75]
+# HST-style survey (e.g., Sheth+2008) -- high-z range
+zrange_075 = [0.60,0.84]
 n = 1000
 mstar_bincenters, fmed, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(200, simulate_surveys.dset_d30_sp, 
 zrange_075, n, nFWHM*0.1, 9.0, 11.5, 0.25, useObservedSizes=False, randomSeed=randomSeed)
 sigma_minus_2fwhm = fmed - flow
 sigma_plus_2fwhm = fhigh - fmed
-ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.75_200_dp-sizes.txt"
+ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.60-0.84_200_dp-sizes.txt"
 outf = open(ff, 'w')
 outf.write(colHeaders_logmstar)
 for i in range(len(fmed)):
@@ -97,7 +97,7 @@ mstar_bincenters, fmed, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(
 zrange_075, n, nFWHM*0.1, 9.0, 11.5, 0.25, useObservedSizes=False, scaleSizes=0.5, randomSeed=randomSeed)
 sigma_minus_2fwhm = fmed - flow
 sigma_plus_2fwhm = fhigh - fmed
-ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.75_200_dp-sizes_scale0.5.txt"
+ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.60-0.84_200_dp-sizes_scale0.5.txt"
 outf = open(ff, 'w')
 outf.write(colHeaders_logmstar)
 for i in range(len(fmed)):
@@ -105,3 +105,61 @@ for i in range(len(fmed)):
 outf.close()
 print("Output saved to %s." % ff)
 
+
+# Simulations for observing S4G sample at intermediate redshifts with HST
+# HST-style survey (e.g., Sheth+2008) -- medium-z range
+zrange_05 = [0.37,0.60]
+n = 1000
+mstar_bincenters, fmed, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(200, simulate_surveys.dset_d30_sp, 
+zrange_05, n, nFWHM*0.1, 9.0, 11.5, 0.25, useObservedSizes=False, randomSeed=randomSeed)
+sigma_minus_2fwhm = fmed - flow
+sigma_plus_2fwhm = fhigh - fmed
+ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.37-0.60_200_dp-sizes.txt"
+outf = open(ff, 'w')
+outf.write(colHeaders_logmstar)
+for i in range(len(fmed)):
+	outf.write("%.2f   %.4f   %.4f   %.4f\n" % (mstar_bincenters[i], fmed[i], sigma_minus_2fwhm[i], sigma_plus_2fwhm[i]))
+outf.close()
+print("Output saved to %s." % ff)
+
+# Same, but now assuming all bars have half their z=0 size
+mstar_bincenters, fmed, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(200, simulate_surveys.dset_d30_sp, 
+zrange_05, n, nFWHM*0.1, 9.0, 11.5, 0.25, useObservedSizes=False, scaleSizes=0.5, randomSeed=randomSeed)
+sigma_minus_2fwhm = fmed - flow
+sigma_plus_2fwhm = fhigh - fmed
+ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.37-0.60_200_dp-sizes_scale0.5.txt"
+outf = open(ff, 'w')
+outf.write(colHeaders_logmstar)
+for i in range(len(fmed)):
+	outf.write("%.2f   %.4f   %.4f   %.4f\n" % (mstar_bincenters[i], fmed[i], sigma_minus_2fwhm[i], sigma_plus_2fwhm[i]))
+outf.close()
+print("Output saved to %s." % ff)
+
+
+# HST-style survey (e.g., Sheth+2008) -- low-z range
+zrange_05 = [0.14,0.37]
+n = 1000
+mstar_bincenters, fmed, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(200, simulate_surveys.dset_d30_sp, 
+zrange_05, n, nFWHM*0.1, 9.0, 11.5, 0.25, useObservedSizes=False, randomSeed=randomSeed)
+sigma_minus_2fwhm = fmed - flow
+sigma_plus_2fwhm = fhigh - fmed
+ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.14-0.37_200_dp-sizes.txt"
+outf = open(ff, 'w')
+outf.write(colHeaders_logmstar)
+for i in range(len(fmed)):
+	outf.write("%.2f   %.4f   %.4f   %.4f\n" % (mstar_bincenters[i], fmed[i], sigma_minus_2fwhm[i], sigma_plus_2fwhm[i]))
+outf.close()
+print("Output saved to %s." % ff)
+
+# Same, but now assuming all bars have half their z=0 size
+mstar_bincenters, fmed, flow, fhigh = simulate_surveys.GenerateAndObserveNTimes(200, simulate_surveys.dset_d30_sp, 
+zrange_05, n, nFWHM*0.1, 9.0, 11.5, 0.25, useObservedSizes=False, scaleSizes=0.5, randomSeed=randomSeed)
+sigma_minus_2fwhm = fmed - flow
+sigma_plus_2fwhm = fhigh - fmed
+ff = baseDirSurv + "sim_logMstar_d30_sp_2xfwhm_HST_z0.14-0.37_200_dp-sizes_scale0.5.txt"
+outf = open(ff, 'w')
+outf.write(colHeaders_logmstar)
+for i in range(len(fmed)):
+	outf.write("%.2f   %.4f   %.4f   %.4f\n" % (mstar_bincenters[i], fmed[i], sigma_minus_2fwhm[i], sigma_plus_2fwhm[i]))
+outf.close()
+print("Output saved to %s." % ff)
