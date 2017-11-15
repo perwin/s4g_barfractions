@@ -4,12 +4,21 @@ This git repository contains data files, Python code, and Python and R
 Jupyter notebooks which can be used to reproduce figures and analyses
 from the paper ["The Dependence of Bar Frequency on Galaxy Mass, Colour,
 and Gas Content -- and Angular Resolution -- in the Local Universe"](https://www.mpe.mpg.de/~erwin/temp/s4g_bars.pdf)
-(Erwin 2017, submitted).
-
-![Figure 10 (left)](./fbar-vs-mass-sim.png)
+(Erwin 2018, submitted).
 
 The `data/` subdirectory contains text-file tables with various data compilations
 and simulation outputs; see the README.md file there for details.
+
+![Figure 10 (left)](./fbar-vs-mass-sim.png)
+
+(This figure, reproduced from the paper, shows the fraction of spiral
+galaxies which have bars, as a function of stellar mass, for the local,
+S4G-based sample studied in the paper (red circles), as well as for
+several SDSS-based studies. The blue pentagons show what happens if the
+S4G-based sample is observed at redshifts typical of the SDSS-based
+studies, assuming that only bars with projected semi-major axes more 
+than twice the typical PSF FWHM can be detected.)
+
 
 [![DOI](https://zenodo.org/badge/86154475.svg)](https://zenodo.org/badge/latestdoi/86154475)
 
@@ -63,7 +72,7 @@ There are also two R notebooks:
    using the code in `simulate_surveys.py`:
       - SDSS-style bar fractions as function of stellar mass
       - SDSS-style bar fractions as function of gas mass ratio
-      - HST-style bar fractions as function of stellar mass (z = 0.75)
+      - *HST*-style bar fractions as function of stellar mass
       
       The outputs of this script (using the default random seed value of 100) can be found
       in the data/ subdirectory.
