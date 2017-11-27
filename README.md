@@ -4,7 +4,8 @@ This git repository contains data files, Python code, and Python and R
 Jupyter notebooks which can be used to reproduce figures and analyses
 from the paper ["The Dependence of Bar Frequency on Galaxy Mass, Colour,
 and Gas Content -- and Angular Resolution -- in the Local Universe"](https://www.mpe.mpg.de/~erwin/temp/s4g_bars.pdf)
-(Erwin 2018, submitted).
+(Erwin 2018, *Monthly Notices of the Royal Astronomical Society*, in press; 
+[arXiv:1711.04867](https://arxiv.org/abs/1711.04867)).
 
 The `data/` subdirectory contains text-file tables with various data compilations
 and simulation outputs; see the README.md file there for details.
@@ -14,8 +15,8 @@ and simulation outputs; see the README.md file there for details.
 (This figure, reproduced from the paper, shows the fraction of spiral
 galaxies which have bars, as a function of stellar mass, for the local,
 S4G-based sample studied in the paper (red circles), as well as for
-several SDSS-based studies. The blue pentagons show what happens if the
-S4G-based sample is observed at redshifts typical of the SDSS-based
+several SDSS-based studies. The blue pentagons show what would happen if the
+same S4G-based sample were to be observed at redshifts typical of the SDSS-based
 studies, assuming that only bars with projected semi-major axes more 
 than twice the typical PSF FWHM can be detected.)
 
