@@ -21,7 +21,7 @@ studies, assuming that only bars with projected semi-major axes more
 than twice the typical PSF FWHM can be detected.)
 
 
-[![DOI](https://zenodo.org/badge/86154475.svg)](https://zenodo.org/badge/latestdoi/86154475)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.804909.svg)](https://doi.org/10.5281/zenodo.804909)
 
 
 ## Dependencies
