@@ -1,4 +1,4 @@
-# Graph from /Users/erwin/Documents/Working/Paper-s4gbars/gifs_for_dexter/diaz-garcia+16a_fig19top.gif, page unknown
+# Graph from /Users/erwin/Documents/Working/Papers-s4gbars/gifs_for_dexter/diaz-garcia+16a_fig19top.gif, page unknown
 # Bar fraction vs log stellar mass for "visual" bar classifications, from top
 # panel of Fig.19 of Diaz-Garcia+2016a.
 # logMstar	f_bar

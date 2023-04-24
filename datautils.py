@@ -317,9 +317,7 @@ def ReadTableArray(fileName, skip="#", dataFrame=False, delimiter=None):
 	containing the NumPy array.
 	"""
 	
-	# open file in "universal" mode to ensure Mac or DOS/Windows
-	# line endings are converted to \n
-	lines = open(fileName, 'rU').readlines()
+	lines = open(fileName).readlines()
 	dlines = [line.rstrip() for line in lines if len(line.strip()) > 0 and line[0] not in skip ]
 	
 	nrows = len(dlines)
@@ -406,7 +404,7 @@ def ColumnToFloats( inputList, blankValue ):
 	with blank entries being replaced by blankValue (which should be float).
 	"""
 	try:
-		floatList = np.array(inputList, "Float64")
+		floatList = np.array(inputList, dtype=np.float64)
 	except ValueError:
 		# looks like column has some blanks in it
 		floatList = copy.copy(inputList)
@@ -465,8 +463,7 @@ def ReadCompositeTable( fileName, skip="#", delimiter=None, noConvert=None,
 	nDataRows = CountDataLinesInFile(fileName, skip=skip)
 	nAllRows = CountLinesInFile(fileName)
 
-	# open file in "universal" mode to convert Mac or DOS line endings to \n
-	inFile = open(fileName, 'rU')
+	inFile = open(fileName)
 	dlines = [line.rstrip() for line in inFile if len(line.strip()) > 0 and line[0] not in skip ]
 	
 	# if requested, extract column names
